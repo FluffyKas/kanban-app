@@ -18,7 +18,6 @@ interface SidebarProps {
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
   const onSideBarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
-    localStorage.setItem('isSidebarOpen', JSON.stringify(!isSidebarOpen));
     console.log(isSidebarOpen);
   };
 

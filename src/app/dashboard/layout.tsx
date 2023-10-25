@@ -4,9 +4,7 @@ import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 
 const DashboardLayout = () => {
-  const storedIsSidebarOpen = localStorage.getItem('isSidebarOpen');
-  const initialIsSidebarOpen = storedIsSidebarOpen ? JSON.parse(storedIsSidebarOpen) : true;
-  const [isSidebarOpen, setIsSidebarOpen] = useState(initialIsSidebarOpen);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <div>
