@@ -9,6 +9,7 @@ import SearchIcon from '../assets/icon-search.svg';
 import BoardIcon from '../assets/icon-board.svg';
 
 import { sidebarBoards } from './temp/SidebarBoards';
+import useSearch from '../hooks/useSearch';
 
 interface SidebarProps {
   isSidebarOpen: boolean;
@@ -20,6 +21,10 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
     setIsSidebarOpen(!isSidebarOpen);
     console.log(isSidebarOpen);
   };
+
+  const { filteredArray, searchQuery, onSearch } = useSearch(sidebarBoards);
+
+  console.log(searchQuery);
 
   return (
     <aside className="fixed top-0 left-0 z-40 h-screen" aria-label="Sidebar navigation">
@@ -42,13 +47,13 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
               name="Search"
               placeholder="Search"
               className="border border-gray-300 w-full px-3 py-3 pl-10 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300"
-              /*     value={searchQuery}
-            onChange={onSearch} */
+              value={searchQuery}
+              onChange={onSearch}
             />
           </div>
 
           <ul>
-            {sidebarBoards.map((board) => (
+            {filteredArray.map((board) => (
               <li key={board}>
                 <a href="#" className="flex items-center gap-4">
                   <Image src={BoardIcon} alt="" aria-hidden="true" />
