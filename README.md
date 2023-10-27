@@ -39,21 +39,24 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Kanban App]()
+- Live Site URL: [Kanban App](https://fem-kanban-app.netlify.app/)
 
 ## My process
 
 ### Built with
 
-- [Next.js](https://nextjs.org/) - React framework
+- [Next.js](https://nextjs.org/)
 - Typescript
 - [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn](https://ui.shadcn.com/)
 
 ### What I learned
 
 ### Continued development
 
 ### Useful resources
+
+- [shadcn](https://ui.shadcn.com/)
 
 ## Author
 
