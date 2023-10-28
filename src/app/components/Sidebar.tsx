@@ -14,32 +14,34 @@ import useSearch from '../hooks/useSearch';
 interface SidebarProps {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (isSidebarOpen: boolean) => void;
+  theme: string;
+  setTheme: (theme: string) => void;
 }
 
-const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
+const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, theme, setTheme }: SidebarProps) => {
   const onSideBarHide = () => {
     setIsSidebarOpen(false);
   };
 
-  console.log(isSidebarOpen);
-
   const { filteredArray, searchQuery, onSearch } = useSearch(sidebarBoards);
+
+  console.log(theme);
 
   return (
     <aside className={`fixed top-0 left-0 z-40 h-screen`} aria-label="Sidebar navigation">
       <div
-        className={`overflow-y-auto py-8 flex flex-col h-full justify-between bg-white border-r border-gray-200 duration-300 ease-out px-8 ${
-          isSidebarOpen ? 'w-[18.75rem]' : 'hidden'
+        className={`overflow-y-auto py-8 flex flex-col h-full justify-between border-r border-gray-200 duration-300 ease-out px-8 ${isSidebarOpen ? 'w-[18.75rem]' : 'hidden'} ${
+          theme === 'dark' ? 'dark' : 'bg-white'
         }`}
       >
         {/* SIDEBAR HEADER */}
         <header>
-          <Image src={KanbanLogoLight} alt="" aria-hidden="true" />
+          <Image src={theme === 'dark' ? KanbanLogoDark : KanbanLogoLight} alt="" aria-hidden="true" />
         </header>
 
         {/* SIDEBAR BOARDS LIST */}
         <div>
-          <h2 className="uppercase">All boards</h2>
+          <h2 className="uppercase">All boards ({sidebarBoards.length})</h2>
 
           <div className="sidebar-search | relative my-6">
             <Image src={SearchIcon} alt="" aria-hidden="true" className="absolute -translate-y-1/2 top-1/2 pl-3 w-8 h-8" />
@@ -71,6 +73,9 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
 
         {/* SIDEBAR FOOTER */}
         <div>
+          <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="p-2 mb-6 text-white bg-kanban_purple rounded-md">
+            Toggle theme
+          </button>
           <button onClick={onSideBarHide} className="flex items-center gap-4">
             <Image src={HideSidebarIcon} alt="" aria-hidden="true" />
             <span>Hide Sidebar</span>

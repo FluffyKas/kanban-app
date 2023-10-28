@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dark {
+  @apply bg-kanban_grey_800 text-kanban_grey_400;
+}
