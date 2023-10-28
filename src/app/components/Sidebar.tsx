@@ -17,23 +17,24 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
-  const onSideBarToggle = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-    console.log(isSidebarOpen);
+  const onSideBarHide = () => {
+    setIsSidebarOpen(false);
   };
+
+  console.log(isSidebarOpen);
 
   const { filteredArray, searchQuery, onSearch } = useSearch(sidebarBoards);
 
-  console.log(searchQuery);
-
   return (
-    <aside className="fixed top-0 left-0 z-40 h-screen" aria-label="Sidebar navigation">
-      <div className="overflow-y-auto py-8 flex flex-col h-full justify-between bg-white border-r border-gray-200 duration-300 ease-out w-[18.75rem] px-8">
+    <aside className={`fixed top-0 left-0 z-40 h-screen`} aria-label="Sidebar navigation">
+      <div
+        className={`overflow-y-auto py-8 flex flex-col h-full justify-between bg-white border-r border-gray-200 duration-300 ease-out px-8 ${
+          isSidebarOpen ? 'w-[18.75rem]' : 'hidden'
+        }`}
+      >
         {/* SIDEBAR HEADER */}
         <header>
-          <button className="sidebar-toggle" aria-label={`${isSidebarOpen ? 'Minimize sidebar' : 'Show full sidebar'}`} onClick={() => onSideBarToggle()}>
-            <Image src={KanbanLogoLight} alt="" aria-hidden="true" />
-          </button>
+          <Image src={KanbanLogoLight} alt="" aria-hidden="true" />
         </header>
 
         {/* SIDEBAR BOARDS LIST */}
@@ -70,7 +71,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
 
         {/* SIDEBAR FOOTER */}
         <div>
-          <button onClick={onSideBarToggle} className="flex items-center gap-4">
+          <button onClick={onSideBarHide} className="flex items-center gap-4">
             <Image src={HideSidebarIcon} alt="" aria-hidden="true" />
             <span>Hide Sidebar</span>
           </button>
