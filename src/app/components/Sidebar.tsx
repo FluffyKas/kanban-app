@@ -33,7 +33,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
     <aside className={`fixed top-0 left-0 z-40 h-screen`} aria-label="Sidebar navigation">
       <div
         className={`overflow-y-auto py-8 flex flex-col h-full justify-between border-r border-gray-200 duration-300 ease-out px-8 ${isSidebarOpen ? 'w-[18.75rem]' : 'hidden'} ${
-          theme === 'dark' ? 'bg-dark' : 'bg-white'
+          theme === 'dark' ? 'bg-kanban_grey_800' : 'bg-white'
         }`}
       >
         {/* SIDEBAR HEADER */}
