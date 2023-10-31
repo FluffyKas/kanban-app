@@ -1,0 +1,3 @@
+.bg-dark {
+  @apply bg-kanban_grey_900 text-kanban_grey_500;
+}
