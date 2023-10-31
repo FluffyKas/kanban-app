@@ -8,7 +8,7 @@ interface ButtonProps {
 const Button = ({ text, type, size, clickHandler }: ButtonProps) => {
   return (
     <button
-      className={`rounded-3xl font-bold
+      className={`rounded-3xl font-bold px-6
       ${type === 'primary' && 'bg-kanban_purple text-white hover:bg-kanban_purple_hover'} 
       ${type === 'secondary' && 'bg-kanban_grey_100 text-kanban_purple hover:bg-kanban_purple_grey_hover'} 
       ${type === 'destructive' && 'bg-kanban_red text-white hover:bg-kanban_red_hover'}

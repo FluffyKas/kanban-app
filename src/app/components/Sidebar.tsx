@@ -2,11 +2,11 @@
 
 import Image from 'next/image';
 
-import KanbanLogoLight from '../assets/logo-light.svg';
-import KanbanLogoDark from '../assets/logo-dark.svg';
-import HideSidebarIcon from '../assets/icon-hide-sidebar.svg';
-import SearchIcon from '../assets/icon-search.svg';
-import BoardIcon from '../assets/icon-board.svg';
+import KanbanLogoLight from '../assets/images/logo-light.svg';
+import KanbanLogoDark from '../assets/images/logo-dark.svg';
+import HideSidebarIcon from '../assets/images/icon-hide-sidebar.svg';
+import SearchIcon from '../assets/images/icon-search.svg';
+import BoardIcon from '../assets/images/icon-board.svg';
 
 import { sidebarBoards } from './temp/SidebarBoards';
 import useSearch from '../hooks/useSearch';
@@ -25,13 +25,11 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, theme, setTheme }: SidebarPr
 
   const { filteredArray, searchQuery, onSearch } = useSearch(sidebarBoards);
 
-  console.log(theme);
-
   return (
     <aside className={`fixed top-0 left-0 z-40 h-screen`} aria-label="Sidebar navigation">
       <div
         className={`overflow-y-auto py-8 flex flex-col h-full justify-between border-r border-gray-200 duration-300 ease-out px-8 ${isSidebarOpen ? 'w-[18.75rem]' : 'hidden'} ${
-          theme === 'dark' ? 'dark' : 'bg-white'
+          theme === 'dark' ? 'bg-dark' : 'bg-white'
         }`}
       >
         {/* SIDEBAR HEADER */}

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ShowSidebarIcon from '../assets/icon-show-sidebar.svg';
+import ShowSidebarIcon from '../assets/images/icon-show-sidebar.svg';
 
 interface ShowSidebarButtonProps {
   setIsSidebarOpen: (isSidebarOpen: boolean) => void;
