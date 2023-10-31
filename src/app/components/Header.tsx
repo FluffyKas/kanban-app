@@ -4,9 +4,10 @@ import KanbanLogoLight from '../assets/images/logo-light.svg';
 import KanbanLogoDark from '../assets/images/logo-dark.svg';
 import MoreOptionsIcon from '../assets/images/icon-vertical-ellipsis.svg';
 import Button from './Button';
+import { useTheme } from '../context/ThemeContext';
 
 const Header = () => {
-  const theme = 'dark';
+  const { theme } = useTheme();
 
   return (
     <header className={`flex justify-between px-8 py-5 ${theme === 'dark' ? 'bg-dark' : 'bg-white'}`}>

@@ -7,18 +7,22 @@ import KanbanLogoDark from '../assets/images/logo-dark.svg';
 import HideSidebarIcon from '../assets/images/icon-hide-sidebar.svg';
 import SearchIcon from '../assets/images/icon-search.svg';
 import BoardIcon from '../assets/images/icon-board.svg';
+import LightThemeIcon from '../assets/images/icon-light-theme.svg';
+import DarkThemeIcon from '../assets/images/icon-dark-theme.svg';
 
 import { sidebarBoards } from './temp/SidebarBoards';
 import useSearch from '../hooks/useSearch';
+import { useTheme } from '../context/ThemeContext';
+
+import { Switch } from '@/components/ui/switch';
 
 interface SidebarProps {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (isSidebarOpen: boolean) => void;
-  theme: string;
-  setTheme: (theme: string) => void;
 }
 
-const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, theme, setTheme }: SidebarProps) => {
+const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
+  const { theme, toggleTheme } = useTheme();
   const onSideBarHide = () => {
     setIsSidebarOpen(false);
   };
@@ -71,12 +75,21 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, theme, setTheme }: SidebarPr
 
         {/* SIDEBAR FOOTER */}
         <div>
-          <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="p-2 mb-6 text-white bg-kanban_purple rounded-md">
-            Toggle theme
-          </button>
-          <button onClick={onSideBarHide} className="flex items-center gap-4">
+          <form className={`rounded-md py-3 flex items-center justify-center gap-4 mb-5 ${theme === 'dark' ? 'bg-kanban_grey_900' : 'bg-kanban_grey_100'}`}>
+            <legend className="sr-only">Theme toggle</legend>
+            <Image src={LightThemeIcon} alt="" aria-hidden="true" />
+            <Switch
+              onClick={() => toggleTheme()}
+              className="data-[state=checked]:bg-kanban_purple data-[state=unchecked]:bg-kanban_purple dark:focus-visible:ring-kanban_purple dark:focus-visible:ring-offset-kanban_purple focus-visible:ring-kanban_purple dark:data-[state=checked]:bg-kanban-purple dark:data-[state=unchecked]:bg-kanban_purple"
+            />
+            <Image src={DarkThemeIcon} alt="" aria-hidden="true" />
+          </form>
+          <button
+            onClick={onSideBarHide}
+            className="flex items-center gap-4 text-kanban_grey_500 text-[0.9375rem] hover:bg-kanban_purple_grey_hover hover:text-kanban_purple rounded-r-full p-4 duration-200 ease-out tracking-wide"
+          >
             <Image src={HideSidebarIcon} alt="" aria-hidden="true" />
-            <span>Hide Sidebar</span>
+            <span className="font-bold">Hide Sidebar</span>
           </button>
         </div>
       </div>
