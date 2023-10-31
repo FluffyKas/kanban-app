@@ -7,6 +7,7 @@ const config: Config = {
       colors: {
         kanban_purple: 'hsla(242, 48%, 58%, 1)',
         kanban_purple_hover: 'hsla(242, 100%, 82%, 1)',
+        kanban_purple_grey_hover: 'hsla(242, 48%, 58%, 0.25)',
         kanban_red: 'hsla(0, 78%, 63%, 1)',
         kanban_red_hover: 'hsla(0, 100%, 80%, 1)',
         kanban_grey_100: 'hsla(220, 69%, 97%, 1)',
