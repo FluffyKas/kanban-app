@@ -7,3 +7,17 @@
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
+
+.board-title {
+  position: relative;
+}
+
+.board-title::before {
+  content: '';
+  width: 1px;
+  height: 5.75rem;
+  background: hsla(221, 69%, 94%, 1);
+  position: absolute;
+  top: -1.9rem;
+  left: -1.65rem;
+}
