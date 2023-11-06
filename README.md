@@ -59,6 +59,7 @@ Users should be able to:
 - [shadcn](https://ui.shadcn.com/)
 - [Theme toggle with React and Tailwind](https://dev.to/naomipham_/how-to-create-darklight-mode-with-react-and-tailwind-59e0)
 - [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- https://www.youtube.com/watch?v=r8nXMA_pf0w
 
 ## Author
 
